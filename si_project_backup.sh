@@ -26,7 +26,9 @@ function ListFolder(){
 				echo $timestamp
 				echo -e "\033[33mDelete the exist si4project.tgz file,then packaged new one, ready go! >>>>>\033[0m"
 				echo $backuptarget
-				rm -rf *.si4project.tgz
+				#rm -rf *.si4project.tgz
+				#find *.si4project.tgz files then delete it!
+				find . -mtime +3 -name "*.si4project.tgz" -exec rm -rf {}
 				tar czf ${timestamp}_${backuptarget}.tgz $backuptarget
 				echo -e "\033[42;37m$f has been packaged for backup\033[0m"
 			else
